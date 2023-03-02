@@ -1,5 +1,6 @@
 package org.example;
 
+
 import java.util.Scanner;
 
 class Main {
@@ -12,4 +13,3 @@ class Main {
         sc.close();
     }
 }
-
