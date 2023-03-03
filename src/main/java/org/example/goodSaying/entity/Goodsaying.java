@@ -21,4 +21,12 @@ public class Goodsaying {
     public String get작가() {
         return 작가;
     }
+
+    public void set명언(String 명언) {
+        this.명언 = 명언;
+    }
+
+    public void set작가(String 작가) {
+        this.작가 = 작가;
+    }
 }

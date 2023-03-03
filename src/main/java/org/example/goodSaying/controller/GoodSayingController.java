@@ -63,4 +63,25 @@ public class GoodSayingController {
         }
         return null;
     }
+
+    public void modify(Rq rq) {
+        int id = rq.getIntparam("id",-1);
+        if (id == -1){
+            System.out.println("id를 입력하세요.");
+        }
+        Goodsaying 저장소 = findByid(id);
+        if (저장소 == null){
+            System.out.printf("%d번 명언은 존재하지 않습니다.\n",id);
+            return;
+        }
+
+        System.out.printf("명언(기존): %s\n명언:",저장소.get명언());
+        String 명언 = sc.nextLine();
+        System.out.printf("작가(기존): %s\n작가:",저장소.get작가());
+        String 작가 = sc.nextLine();
+        저장소.set명언(명언);
+        저장소.set작가(작가);
+
+        System.out.printf("%d번 명언이 수정되었습니다.\n",id);
+    }
 }

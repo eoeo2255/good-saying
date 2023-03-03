@@ -23,19 +23,22 @@ public class App {
 
             switch (rq.getInputOrder()){
                 case "종료":
-                systemController.off();
-                return; //아예 함수 자체를 끝낸다.
+                    systemController.off();
+                    return; //아예 함수 자체를 끝낸다.
 
                 case "등록":
-                goodSayingController.save();
-                break;
+                    goodSayingController.save();
+                    break;
 
                 case "목록":
-                goodSayingController.list();
-                break;
+                    goodSayingController.list();
+                    break;
 
                 case "삭제":
-                goodSayingController.delete(rq);
+                    goodSayingController.delete(rq);
+
+                case "수정":
+                    goodSayingController.modify(rq);
             }
         }
     }
