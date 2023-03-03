@@ -1,11 +1,7 @@
 package org.example;
 
 import org.example.goodSaying.controller.GoodSayingController;
-
 import org.example.system.controller.SystemController;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -23,19 +19,23 @@ public class App {
         while(true){
             System.out.printf("명령)");
             String input = sc.nextLine();
+            Rq rq = new Rq(input);
 
-            if (input.equals("종료")){
+            switch (rq.getInputOrder()){
+                case "종료":
                 systemController.off();
-                break;
-            }
-            else if (input.equals("등록")){
-                goodSayingController.save();
-            } else if (input.equals("목록")){
-                goodSayingController.list();
-            } else if (input.startsWith("삭제")) {
-                Rq rq = new Rq(input);
+                return; //아예 함수 자체를 끝낸다.
 
-                goodSayingController.delete();
+                case "등록":
+                goodSayingController.save();
+                break;
+
+                case "목록":
+                goodSayingController.list();
+                break;
+
+                case "삭제":
+                goodSayingController.delete(rq);
             }
         }
     }
